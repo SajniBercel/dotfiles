@@ -1,0 +1,6 @@
+configuration {
+  modi: "window,drun,ssh,combi";
+  font: "hack 10";
+  combi-modi: "window,durn,ssh";
+}
+@theme "~/.config/rofi/themes/dtos-center.rasi"
