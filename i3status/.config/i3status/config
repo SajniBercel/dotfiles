@@ -1,19 +1,14 @@
 general {
         colors = true
-        interval = 5
+        interval = 1
 }
 
 order += "disk /"
-order += "load"
 order += "memory"
 order += "tztime local"
 
 disk "/" {
         format = "free space: %avail"
-}
-
-load {
-        format = "cpu load: %1min"
 }
 
 memory {

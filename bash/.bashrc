@@ -22,7 +22,7 @@ export JAVA_HOME=/usr/lib/jvm/default
 export PATH="$JAVA_HOME/bin:$PATH"
 
 # Screen Size
-monitor='eDP-1'
+monitor='Virtual-1'
 alias small='xrandr --output $monitor --mode 800x600'
 alias medium='xrandr --output $monitor --mode 1280x960'
 alias big='xrandr --output $monitor --mode 1920x1080'
