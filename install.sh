@@ -11,7 +11,7 @@ if [[ "$confirm" =~ ^([Yy][Ee][Ss]|[Yy])$ || -z "$confirm" ]]; then
     sudo pacman --needed -S xorg i3 i3status rofi alacritty \
         stow mpv git ttf-iosevka-nerd neovim \
         zip unzip make gcc firefox fastfetch htop btop \
-        man-db man-pages ripgrep xorg-xinit npm tree
+        man-db man-pages ripgrep xorg-xinit npm tree copyq
 fi
 
 read -p "[INSTALL] Do u want to make the symbolic links with stow? (Y/n): " confirm

@@ -11,9 +11,13 @@ alias la='ls -a'
 alias lat='ls -lat'
 alias neofetch='fastfetch -c examples/13'
 
+# video
 alias video='mpv'
 
-# Keysboard
+# working director
+alias cdwd='cd ~/Projects/C/oprBead/'
+
+# Keyboards
 alias kus='setxkbmap us'
 alias khu='setxkbmap hu'
 
@@ -24,7 +28,7 @@ export PATH="$JAVA_HOME/bin:$PATH"
 # Screen Size
 monitor='Virtual-1'
 alias small='xrandr --output $monitor --mode 800x600'
-alias medium='xrandr --output $monitor --mode 1280x960'
+alias medium='xrandr --output $monitor --mode 1280x720'
 alias big='xrandr --output $monitor --mode 1920x1080'
 
 PS1='[\u@\h \W]\$ '
