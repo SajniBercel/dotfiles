@@ -168,5 +168,25 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+    position top
+    status_command i3status
+
+    font pango:Iosevka Nerd Font Mono 15
+
+    workspace_buttons yes
+    strip_workspace_numbers no
+    tray_output primary
+
+    colors {
+        # class                 border     background text
+        background             #1a1b26
+        statusline             #a9b1d6
+        separator              #444b6a
+
+        focused_workspace      #7aa2f7    #7aa2f7    #1a1b26
+        active_workspace       #ad8ee6    #32344a    #a9b1d6
+        inactive_workspace     #32344a    #1a1b26    #787c99
+        urgent_workspace       #f7768e    #f7768e    #1a1b26
+        binding_mode           #e0af68    #e0af68    #1a1b26
+    }
 }
