@@ -1,3 +1,5 @@
+# !!!WARNING THIS CONFIG IS DEPRICATED, I MOVED TO POLYBAR!!!
+
 general {
     output_format = "i3bar"
     colors = true

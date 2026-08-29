@@ -8,10 +8,11 @@ fi
 
 read -p "[INSTALL] Do u want to install basic programs (required most of them required for the configs)? (Y/n): " confirm
 if [[ "$confirm" =~ ^([Yy][Ee][Ss]|[Yy])$ || -z "$confirm" ]]; then
-    sudo pacman --needed -S xorg i3 i3status rofi alacritty \
-        stow mpv git ttf-iosevka-nerd neovim \
-        zip unzip make gcc firefox fastfetch htop btop \
-        man-db man-pages ripgrep xorg-xinit npm tree copyq
+    sudo pacman --needed -S xorg i3 rofi alacritty xwallpaper \
+        stow mpv git ttf-iosevka-nerd neovim maim xclip \
+        zip unzip make gcc firefox fastfetch htop btop  \
+        man-db man-pages ripgrep xorg-xinit npm tree copyq \ 
+        polybar wget
 fi
 
 read -p "[INSTALL] Do u want to make the symbolic links with stow? (Y/n): " confirm
@@ -24,7 +25,15 @@ if [[ "$confirm" =~ ^([Yy][Ee][Ss]|[Yy])$ || -z "$confirm" ]]; then
             ~/.config/alacritty \
             ~/.config/nvim \
             ~/.config/rofi \
-            ~/.xinitrc
+            ~/.xinitrc \
+            ~/.config/picom \
+            ~/.config/polybar/config.ini \
+            ~/.config/polybar/launch.sh \
     fi
-    stow bash i3 i3status alacritty nvim rofi xinit
+    stow bash i3 polybar alacritty nvim rofi xinit picom
+    mkdir ~/Files
+    mkdir ~/Files/Pictures
+    mkdir ~/Files/Videos
+    mkdir ~/Files/Documents
+    wget https://repository-images.githubusercontent.com/356367080/35485400-99f2-11eb-90ad-0dbd618410db -o ~/User/Pictures/ArchWallpaper.png
 fi

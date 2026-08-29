@@ -10,11 +10,18 @@ exec --no-startup-id dex --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+# opengl hardware acceleration
+exec --no-startup-id picom
+
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 exec --no-startup-id nm-applet
 
 # (copy) Paste
 exec --no-startup-id copyq
+
+# file picker
+exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP
+exec --no-startup-id systemctl --user import-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOe
 
 # ssh
 # exec --no-startup-id systemctl start sshd
@@ -42,6 +49,10 @@ bindsym $mod+q kill
 
 # (copy) Paste
 bindsym $mod+Shift+v exec --no-startup-id copyq show clipboard [class="copyq"] floating enabled
+
+# print screen
+bindsym --release Print exec --no-startup-id sh -c 'maim -s | xclip -selection clipboard -t image/png -i'
+bindsym --release Shift+Print exec --no-startup-id sh -c 'maim | xclip -selection clipboard -t image/png -i'
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id "rofi -show drun"
@@ -145,6 +156,12 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# border
+gaps outer 20
+smart_gaps off
+default_border pixel 0
+default_floating_border pixel 0
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
@@ -165,28 +182,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    position top
-    status_command i3status
+#bar {    position top status_command i3status font pango:Iosevka Nerd Font Mono 15 workspace_buttons yes strip_workspace_numbers no tray_output primary colors { background             #1a1b26 statusline             #a9b1d6 separator              #444b6a focused_workspace      #7aa2f7    #7aa2f7    #1a1b26 active_workspace       #ad8ee6    #32344a    #a9b1d6 inactive_workspace     #32344a    #1a1b26    #787c99 urgent_workspace       #f7768e    #f7768e    #1a1b26 binding_mode           #e0af68    #e0af68    #1a1b26 } }
 
-    font pango:Iosevka Nerd Font Mono 15
-
-    workspace_buttons yes
-    strip_workspace_numbers no
-    tray_output primary
-
-    colors {
-        # class                 border     background text
-        background             #1a1b26
-        statusline             #a9b1d6
-        separator              #444b6a
-
-        focused_workspace      #7aa2f7    #7aa2f7    #1a1b26
-        active_workspace       #ad8ee6    #32344a    #a9b1d6
-        inactive_workspace     #32344a    #1a1b26    #787c99
-        urgent_workspace       #f7768e    #f7768e    #1a1b26
-        binding_mode           #e0af68    #e0af68    #1a1b26
-    }
-}
+exec_always --no-startup-id ~/.config/polybar/launch.sh

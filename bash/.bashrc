@@ -1,15 +1,14 @@
-#
-# ~/.bashrc
-#
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+
+export XDG_CURRENT_DESKTOP=i3
 
 # ls
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias lat='ls -lat'
 alias neofetch='fastfetch -c examples/13'
+alias tree='tree -C'
 
 # video
 alias video='mpv'
