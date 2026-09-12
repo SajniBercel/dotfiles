@@ -2,6 +2,8 @@
 [[ $- != *i* ]] && return
 
 export XDG_CURRENT_DESKTOP=i3
+export HISTSIZE=50
+export HISTFILESIZE=50
 
 # ls
 alias ls='ls --color=auto'

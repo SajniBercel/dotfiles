@@ -3,12 +3,12 @@ echo "[INSTALL] This instalation is arch linux (pacman) only"
 read -p "[INSTALL] Do u want to update the system (Y/n): " confirm
 
 if [[ "$confirm" =~ ^([Yy][Ee][Ss]|[Yy])$ || -z "$confirm" ]]; then
-    sudo pacman -Syu
+    yes | sudo pacman -Syu
 fi
 
 read -p "[INSTALL] Do u want to install basic programs (required most of them required for the configs)? (Y/n): " confirm
 if [[ "$confirm" =~ ^([Yy][Ee][Ss]|[Yy])$ || -z "$confirm" ]]; then
-    sudo pacman --needed -S xorg i3 rofi alacritty xwallpaper \
+    yes | sudo pacman --needed -S xorg i3 rofi alacritty xwallpaper \
         stow mpv git ttf-iosevka-nerd neovim maim xclip \
         zip unzip make gcc firefox fastfetch htop btop  \
         man-db man-pages ripgrep xorg-xinit npm tree copyq \ 
@@ -27,10 +27,9 @@ if [[ "$confirm" =~ ^([Yy][Ee][Ss]|[Yy])$ || -z "$confirm" ]]; then
             ~/.config/rofi \
             ~/.xinitrc \
             ~/.config/picom \
-            ~/.config/polybar/config.ini \
-            ~/.config/polybar/launch.sh \
+            ~/.config/polybar
     fi
-    stow bash i3 polybar alacritty nvim rofi xinit picom
+    stow bash i3 polybar alacritty nvim rofi xinit picom mc-tokyonight
     mkdir ~/Files
     mkdir ~/Files/Pictures
     mkdir ~/Files/Videos
