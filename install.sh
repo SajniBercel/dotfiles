@@ -8,11 +8,11 @@ fi
 
 read -p "[INSTALL] Do u want to install basic programs (required most of them required for the configs)? (Y/n): " confirm
 if [[ "$confirm" =~ ^([Yy][Ee][Ss]|[Yy])$ || -z "$confirm" ]]; then
-    yes | sudo pacman --needed -S xorg i3 rofi alacritty xwallpaper \
-        stow mpv git ttf-iosevka-nerd neovim maim xclip \
+    sudo pacman --needed -S i3-wm rofi alacritty xwallpaper xorg-xrandr \
+        stow mpv git ttf-iosevka-nerd neovim maim xclip x-server \
         zip unzip make gcc firefox fastfetch htop btop  \
-        man-db man-pages ripgrep xorg-xinit npm tree copyq \ 
-        polybar wget
+        man-db man-pages ripgrep xorg-xinit npm tree copyq \
+        polybar wget xsecurelock
 fi
 
 read -p "[INSTALL] Do u want to make the symbolic links with stow? (Y/n): " confirm
@@ -27,9 +27,11 @@ if [[ "$confirm" =~ ^([Yy][Ee][Ss]|[Yy])$ || -z "$confirm" ]]; then
             ~/.config/rofi \
             ~/.xinitrc \
             ~/.config/picom \
-            ~/.config/polybar
+            ~/.config/polybar \
+            ~/.config/i3/lock.sh \
+            ~/.config/fastfetch
     fi
-    stow bash i3 polybar alacritty nvim rofi xinit picom mc-tokyonight
+    stow bash i3 fastfetch polybar i3lock alacritty nvim rofi xinit picom mc-tokyonight
     mkdir ~/Files
     mkdir ~/Files/Pictures
     mkdir ~/Files/Videos

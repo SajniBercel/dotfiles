@@ -9,7 +9,7 @@ export HISTFILESIZE=50
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias lat='ls -lat'
-alias neofetch='fastfetch -c examples/13'
+alias neofetch='fastfetch -c examples/13 --logo ~/.config/fastfetch/AsciiLogo$((RANDOM % 2 + 4)).txt --logo-type file'
 alias tree='tree -C'
 
 # video
@@ -33,3 +33,4 @@ alias medium='xrandr --output $monitor --mode 1280x720'
 alias big='xrandr --output $monitor --mode 1920x1080'
 
 PS1='[\u@\h \W]\$ '
+neofetch
